@@ -1,0 +1,98 @@
+﻿@model IEnumerable<SupperMarket3.Context.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Quản lý Product</h1>
+
+<section class="wrapper">
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              Bảng sản phẩm
+            </div>
+            <div>
+                <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                    <thead>
+                        <tr>
+
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Giá Sale</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Ảnh</th>
+                            <th>Miễn giảm</th>
+                            <th>Tồn kho</th>
+                            <th>Video</th>
+                            <th>DateCreate</th>
+                            <th>DateModified</th>
+                            <th>BestSellers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                   @item.Price.Value.ToString("#,##0")₫
+                                </td>
+                                <td>
+                                    @item.PriceSale.Value.ToString("#,##0")₫
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CateGoryID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Avatar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Discount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Thumb)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Video)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateCreate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateModified)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BestSellers)
+                                </td>
+                                
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.IdProduct }) |
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.IdProduct })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <p>
+                        @Html.ActionLink("Thêm mới", "Create")
+                    </p>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+

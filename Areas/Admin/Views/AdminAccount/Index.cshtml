@@ -1,0 +1,88 @@
+﻿@model SupperMarket3.Areas.Models.Account_Role
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Quản lý quyền truy cập</h1>
+
+<section class="wrapper">
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Quản lý truy cập
+            </div>
+            <select name="RoleList" id ="idRole" style="min-width: 200px">
+               @foreach(var item in Model.Roles)
+            {
+                <option>@item.RoleName</option>
+            }
+            </select>
+            <div>
+                <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                    <thead>
+                        <tr>
+
+                            <th>Full Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Salt</th>
+                            <th>Active</th>
+                            <th>Role ID</th>
+                            <th>LastLogin</th>
+                            <th>CreateDate</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Accounts)
+                        {
+                            <tr data-expanded="true">
+
+                                <td>@item.FullName</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Email</td>
+                                <td>@item.Password</td>
+                                <td>@item.Salt</td>
+                                <td>
+                                    @if (@item.Active)
+                                    {
+                                        <p>Active</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Block</p>
+                                    }
+                                </td>
+                                <td>@item.RoleID</td>
+                                <td>@item.LastLogin</td>
+                                <td>@item.CreateDate</td>
+                                <td>
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.AccountID }) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.AccountID })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                 
+                        @Html.ActionLink("Thêm mới", "Create")
+                 
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

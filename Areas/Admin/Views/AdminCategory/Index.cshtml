@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SupperMarket3.Context.Categories>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Quản lý Danh Mục</h1>
+
+<section class="wrapper">
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Bảng danh mục sẩn phẩm 
+            </div>
+            <div>
+                <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                    <thead>
+                        <tr>
+
+                            <th>Tên</th>
+                            <th>Mô tả</th>
+                            <th>ParentID</th>
+                            <th>Levels</th>
+                            <th>Odering</th>
+                            <th>Published</th>
+                            <th>Thumb</th>
+                            <th>Title</th>
+                            <th>Alias</th>
+                            <th>MetaDes</th>
+                            <th>MetaKey</th>
+                            <th>SchemaMarkup</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr data-expanded="true">
+
+                                <td>@item.CatName </td>
+                                <td>@item.Description </td>
+                                <td>@item.ParentID</td>
+                                <td>@item.Levels</td>
+                                <td>@item.Odering </td>
+                                <td>@item.Published </td>
+                                <td>@item.Thumb</td>
+                                <td>@item.Title</td>
+                                <td>@item.Alias </td>
+                                <td>@item.MetaDes </td>
+                                <td>@item.MetaKey</td>
+                                <td>@item.Cover</td>
+                                <td>@item.SchemaMarkup</td>
+                                <td>
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.CateGoryID}) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.CateGoryID })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <p>
+                        @Html.ActionLink("Thêm mới", "Create")
+                    </p>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SupperMarket3.Context.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Quản lý khách hàng</h1>
+
+<section class="wrapper">
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Quản lý khách hàng
+            </div>
+
+            <div>
+                <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                    <thead>
+                        <tr>
+
+                            <th>Ho và tên</th>
+                            <th>Sinh nhật</th>
+                            
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Tỉnh thành</th>
+                            
+                            <th>Create Date</th>
+                            <th>Password</th>
+                            
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr data-expanded="true">
+
+                                <td>@item.FullName</td>
+                                <td>@item.Birthday</td>
+                               
+                                <td>@item.Email</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Address</td>
+                                <td>@item.Locations.Name</td>
+                               
+                                <td>@item.CreateDate</td>
+                                <td>@item.Password</td>
+                               
+                              
+                                <td>
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.CustomerID }) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.CustomerID })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                    @Html.ActionLink("Thêm mới", "Create")
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+

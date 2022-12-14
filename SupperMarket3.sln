@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupperMarket3", "SupperMarket3\SupperMarket3.csproj", "{FDB44162-027F-486E-9CCA-779A631D0C5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDB44162-027F-486E-9CCA-779A631D0C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDB44162-027F-486E-9CCA-779A631D0C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDB44162-027F-486E-9CCA-779A631D0C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDB44162-027F-486E-9CCA-779A631D0C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89612945-EB97-40CA-A2F1-16656444EB32}
+	EndGlobalSection
+EndGlobal
